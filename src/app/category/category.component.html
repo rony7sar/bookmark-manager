@@ -1,0 +1,8 @@
+<p-card>
+    <div style="overflow-y: scroll; height:100px; border: 1px solid black;">
+        <div *ngFor="let bookmark of bookmarks" style="display: flex;">
+            <span style="flex: 5">{{bookmark.title}}</span>
+            <button  style="flex: 5" pButton type="button" style="float: right;" (click)="onBookmarkSelected(bookmark)">Details</button>
+        </div>
+    </div>
+</p-card>

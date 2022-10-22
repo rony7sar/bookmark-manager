@@ -1,0 +1,7 @@
+<p-card>
+    <div *ngIf="selectedBookmark?.title" style="border: 1px solid black;">
+        <p>Title: {{selectedBookmark?.title}}</p>
+        <a href="{{selectedBookmark?.url}}" target="_blank">Url: {{selectedBookmark?.url}}</a>
+        <p>Category: {{selectedBookmark?.category}}</p>
+    </div>
+</p-card>

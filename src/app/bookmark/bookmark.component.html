@@ -1,0 +1,28 @@
+<p-dialog header="Add A Bookmark" [(visible)]="bookmarkModalVisible" [style]="{width: '50vw', height: '30vw', 'background-color':'powderblue'}" (onHide)="onCancel()"
+    [modal]="true">
+    <form [formGroup]="bookmarkForm" style="background-color:powderblue;">
+        <div class="ui-g">
+            <div class="ui-g-12" style="padding: 5px;">
+                <input pInputText id="title" name="title" class="form-control" placeholder="Title" formControlName="title" maxlength="30">
+                <div *ngIf="bookmarkForm.controls['title']?.errors && !bookmarkForm.controls['title']?.pristine" style="color: red;">Title is requied</div>
+            </div>
+            <div class="ui-g-12" style="padding: 5px;">
+                <input pInputText type="url" name="url" class="form-control" placeholder="Url" formControlName="url">
+                <div *ngIf="bookmarkForm.controls['url']?.errors && !bookmarkForm.controls['url']?.pristine" style="color: red;">Valid Url is requied</div>
+            </div>
+            <div class="ui-g-12" style="padding: 5px;">
+                <p-dropdown [options]="categorySelectItems" formControlName="category" optionLabel="label" optionValue="value" [disabled]="customCategoryVisible"></p-dropdown>
+                <button pButton type="button" (click)="showCustomCategory()" [disabled]="customCategoryVisible">+</button>
+                <div *ngIf="bookmarkForm.controls['category']?.errors && !customCategoryVisible && !bookmarkForm.controls['category']?.pristine" style="color: red;">Category is requied</div>
+            </div>
+            <div class="ui-g-12" *ngIf="customCategoryVisible" style="padding: 5px;">
+                <input pInputText id="customCategory" name="category" class="form-control" placeholder="Category" formControlName="category">
+                <div *ngIf="bookmarkForm.controls['category']?.errors && !bookmarkForm.controls['category']?.pristine" style="color: red;">Category is requied</div>
+            </div>
+        </div>
+    </form>
+    <ng-template pTemplate="footer">
+        <button type="button" pButton (click)="onBookmarkAdd()">Add</button>
+        <button type="button" pButton (click)="onCancel()">Cancel</button>
+    </ng-template>
+</p-dialog>

@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+
+/* Importing Bootstrap SCSS file. */
+@import '~bootstrap/scss/bootstrap';
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+body .p-component-overlay {
+    background-color: rgba(0, 0, 0, 0.8);
+    opacity: 1;
+}

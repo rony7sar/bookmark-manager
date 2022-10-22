@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="row" style="align-content: center; margin-bottom: 50px;">
+        <div class="col-sm-12">
+            <div style="display: flex;">
+                <div style="flex: 1;"></div>
+                <div style="flex: 1;">
+                    <span style="font-size: 20px;">Bookmark Manager</span>
+                </div>
+                <div style="flex: 1;">
+                    <button pButton type="button" (click)="showBookMarkModal(true)">Add Bookmark</button>
+                </div>
+                <div style="flex: 1;"></div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div *ngFor="let category of categories" style="margin-bottom: 20px;">
+                <app-category [bookmarks]="sortedBookmarks[category]"></app-category>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <app-category-detail [selectedBookmark]="selectedBookmark"></app-category-detail>
+        </div>
+    </div>
+    <app-bookmark [categories]="categories" [bookmarkModalVisible]="bookmarkModalVisible"></app-bookmark>
+</div>
