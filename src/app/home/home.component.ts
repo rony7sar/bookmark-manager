@@ -46,9 +46,7 @@ export class HomeComponent implements OnInit {
   sortedBookmarks: any = {}
   processBookmarks(bookmarks: Bookmark[]) {
     if(!bookmarks || !bookmarks.length) { return; }
-    if(!this.sortedBookmarks) {
-      this.sortedBookmarks = {};
-    }
+    this.sortedBookmarks = {};
     bookmarks.forEach(bookmark => {
       if(bookmark.category) {
         if(!this.sortedBookmarks[bookmark.category]) {
